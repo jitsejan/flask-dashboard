@@ -3,12 +3,19 @@
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body{
+            /*background-color: rgb(200, 200, 200);*/
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-wide">
         {% for id in ids %}
-        <div id="{{id}}"></div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div id="{{id}}"></div>
+        </div>
         {% endfor %}
     </div>
 </body>

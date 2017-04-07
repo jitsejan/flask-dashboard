@@ -2,30 +2,53 @@ from flask import Flask, render_template
 
 import json
 import plotly
+import os
 
 import pandas as pd
 import numpy as np
 
 app = Flask(__name__)
 app.debug = True
-
+app._static_folder = os.path.abspath("static/")
 
 @app.route('/')
-def index():
+@app.route('/tankbonnen')
+def tankbonnen():
     df = pd.read_csv('../../notebooks/data/tankbonnen.csv', sep=',')
-
-
     graphs = [
         dict(
             data=[
                 dict(
                     x=df['date'],
                     y=df['price'],
+                    marker=dict(
+                      color='rgb(102,153,255)',
+                        line=dict(
+                                color='rgb(8,48,107)',
+                                width=.5),
+                        ),
                     type='bar'
                 ),
             ],
             layout=dict(
-                title='Price per liter'
+                xaxis=dict(                 
+                    title="Date"
+                ),
+                yaxis=dict(                 
+                    title="Price [EUR]",
+                    ticks="",
+                    showticklabels=False
+                ),
+                annotations=[
+                    dict(x=xi,y=yi,
+                         text=str(yi),
+                         xanchor='center',
+                         yanchor='bottom',
+                         showarrow=False,
+                    ) for xi, yi in zip(df['date'], df['price'])],
+                title='Price of diesel in EUR',
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)'
             )
         ),
         dict(
@@ -33,11 +56,25 @@ def index():
                 dict(
                     x=df['date'],
                     y=df['kilometers'],
-                    type='scatter'
+                    marker=dict(
+                        color='rgb(102,153,255)',
+                        line=dict(
+                            color='rgb(8,48,107)',
+                            width=.5),
+                    )
                 ),
             ],
             layout=dict(
-                title='Amount of kilometers'
+                xaxis=dict(                 
+                    title="Date"
+                ),
+                yaxis=dict(                 
+                    title="Kilometers",
+                    
+                ),
+                title='Amount of kilometers',
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)'
             )
         ),
         dict(
@@ -61,6 +98,8 @@ def index():
             ],
             layout=dict(
                 title = 'Locations of gas stations',
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
                 showlegend = False, 
                 geo = dict(
                     resolution=50,
@@ -70,7 +109,7 @@ def index():
                     ),
                     showland = True,
                     showcoastlines = True,
-                    showframe = True,
+                    showframe = False,
                     showocean = True,
                     showlakes = True,
                     showrivers = False,
@@ -80,7 +119,33 @@ def index():
                 ),
             )
         ),
-        
+        dict(
+            data=[
+                dict(
+                    x=df['date'],
+                    y=df['distance'],
+                    marker=dict(
+                      color='rgb(102,153,255)',
+                        line=dict(
+                                color='rgb(8,48,107)',
+                                width=.5),
+                        ),
+                    type='bar'
+                ),
+            ],
+            layout=dict(
+                xaxis=dict(                 
+                    title="Date"
+                ),
+                yaxis=dict(                 
+                    title="Distance",
+                    showticklabels=True
+                ),
+                title='Distance travelled',
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)'
+            )
+        ),
     ]
 
     # Add "ids" to each of the graphs to pass up to the client
