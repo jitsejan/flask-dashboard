@@ -14,7 +14,7 @@ app._static_folder = os.path.abspath("static/")
 @app.route('/')
 @app.route('/tankbonnen')
 def tankbonnen():
-    df = pd.read_csv('../../notebooks/data/tankbonnen.csv', sep=',')
+    df = pd.read_csv('tankbonnen.csv', sep=';')
     graphs = [
         dict(
             data=[

@@ -1,0 +1,10 @@
+kilometers;date;distance;address;amount;name;volume;price;cost;type;latitude;longitude
+92847.0;2016-12-19 08:30:00;597.0;Heistraat 31, Veldhoven;4;Shell Express Veldhoven;42.89;1.199;51.43;Shell FuelSave Diesel;51.4323436;5.4212306
+93604.0;2017-01-19 08:44:00;757.0;Heistraat 31, Veldhoven;4;Shell Express Veldhoven;43.46;1.199;52.11;Shell FuelSave Diesel;51.4323436;5.4212306
+94348.0;2017-02-04 23:39:00;744.0;Westerval 30, Enschede;1;Tango Enschede;40.16;1.189;47.75;Diesel;52.2187706;6.8684883
+95136.0;2017-02-13 18:42:00;788.0;Heistraat 31, Veldhoven;4;Shell Express Veldhoven;43.67;1.199;52.36;Shell FuelSave Diesel;51.4323436;5.4212306
+95973.0;2017-03-01 18:14:00;837.0;Heistraat 31, Veldhoven;4;Shell Express Veldhoven;43.7;1.209;52.83;Shell FuelSave Diesel;51.4323436;5.4212306
+96809.0;2017-03-21 21:37:00;836.0;Noord Brabantlaan 4a, Eindhoven;1;BP Express Eindhoven;43.38;1.2990000000000002;56.35;BP Ultimate Diesel;51.4448564;5.4473013
+97649.0;2017-04-11 08:14:00;840.0;Poort van Veghel 4900, Veghel;;TOTAL Poort van Veghel;44.14;1.368;60.38;Excellent Diesel;;
+98484.0;2017-05-09 17:58:00;844.6;Hurkestraat 44, Eindhoven;;TinQ Eindhoven;44.50;1.129;50.35;Diesel;;
+99320.0;2017-05-20 09:50:00;826.5;Langendijk 1, Eindhoven;;Firezone Eindhoven;42.22;1.139;48.09;Diesel;;
